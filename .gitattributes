@@ -1,0 +1,11 @@
+# Normalise line endings so the repo doesn't churn between Windows and Linux
+# checkouts. Text is stored LF in git and checked out natively.
+* text=auto
+
+# Keep these LF everywhere — they are read by tools, not just editors.
+*.sql   text eol=lf
+*.py    text eol=lf
+*.md    text eol=lf
+
+*.png   binary
+*.csv   binary

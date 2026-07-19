@@ -1,0 +1,15 @@
+# Core ETL
+pandas>=2.2
+SQLAlchemy>=2.0.30
+psycopg[binary]>=3.2      # psycopg 3 — has wheels for Python 3.13/3.14, unlike psycopg2-binary
+python-dotenv>=1.0
+
+# CLI output + markdown report tables
+tabulate>=0.9
+
+# Tests (offline, no database needed)
+pytest>=8.0
+
+# Optional dashboard layer (Step 6)
+streamlit>=1.35
+plotly>=5.22

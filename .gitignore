@@ -1,0 +1,34 @@
+# Secrets — never commit the real connection string
+.env
+
+# Virtual environment
+.venv/
+venv/
+
+# Raw source data (download it yourself, see README)
+data/raw/*
+!data/raw/.gitkeep
+
+# Kaggle downloads — the zip and whatever it unpacked to. Datasets do not
+# belong in the repo; the README says where to get it.
+archive*
+
+# Generated reports.
+# The two markdown summaries ARE committed on purpose — the README links to
+# them so a reviewer can read real output without standing up a database.
+reports/*
+!reports/.gitkeep
+!reports/*.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Editors / OS / tooling
+.vscode/
+.idea/
+# local run configs contain absolute machine paths
+.claude/
+Thumbs.db
+desktop.ini
