@@ -12,7 +12,7 @@
 </p>
 
 ---
-
+Live App-->>> https://retail-sql-warehouse-h4ooox2nflvy7kgrgpuxxr.streamlit.app/
 ## What it does
 
 Most "SQL portfolio projects" are a flat table and five `SELECT`s. This one is
@@ -267,9 +267,6 @@ quarantined**.
 streamlit run dashboard/app.py
 ```
 
-![Dashboard](assets/dashboard.png)
-
-> _Take a screenshot of the running app and save it as `assets/dashboard.png`._
 
 Reads the same `mart` views the queries use, so the dashboard and the SQL can
 never tell different stories — the KPI row shows `$2,297,201` because that is
