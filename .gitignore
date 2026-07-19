@@ -1,5 +1,6 @@
 # Secrets — never commit the real connection string
 .env
+.streamlit/secrets.toml
 
 # Virtual environment
 .venv/

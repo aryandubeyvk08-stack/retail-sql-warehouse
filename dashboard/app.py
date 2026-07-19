@@ -9,6 +9,7 @@ re-derives revenue.
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -18,6 +19,20 @@ import streamlit as st
 from sqlalchemy import text
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+# Streamlit Community Cloud has no .env — the connection string arrives through
+# the app's Secrets instead. Copy it into the environment before importing
+# etl.config, so the ETL package keeps one environment-based way of finding the
+# database and needs no Streamlit-specific branch.
+#
+# The try/except is load-bearing: with no secrets.toml on disk, merely testing
+# `"KEY" in st.secrets` raises StreamlitSecretNotFoundError, which would break
+# the app locally — the exact environment where .env makes secrets unnecessary.
+if not os.getenv("DATABASE_URL"):
+    try:
+        os.environ["DATABASE_URL"] = st.secrets["DATABASE_URL"]
+    except Exception:
+        pass  # fall through to .env / real environment variables
 
 from etl.config import ConfigError, get_engine  # noqa: E402
 
